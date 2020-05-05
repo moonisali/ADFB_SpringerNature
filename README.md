@@ -4,7 +4,7 @@ It is a script that allows the automation of the free download of the books offe
 
 ## How to use
 
-First download the executable for [GNU/Linux](https://google.com.ve) and [Windows](https://google.com.ve).
+First download the executable for **GNU/Linux** or **Windows**, in [releases page](https://github.com/GiomarOsorio/ADFB_SpringerNature/releases/download/v1.0.0/getBooks.version.GNU.Linux.tar.xz)
 
 Then you will need to download the file that contains the information of the books and links, this is offered by Springe Nature, once downloaded, rename the file to "dataBooks.xlsx" and put it in the same folder where the executable file is located, then start the program.
 
