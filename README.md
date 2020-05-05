@@ -23,7 +23,7 @@ This is what the program looks like once started
 first screen of the program, showing the books by categories available in the archive.
 
 ![image second page of program]
-(https://github.com/GiomarOsorio/ADFB_SpringerNature/blob/master/images/second%20page.png)
+(https://raw.githubusercontent.com/GiomarOsorio/ADFB_SpringerNature/master/images/second%20page.png)
 second screen of the program, download section of books.
 
 
