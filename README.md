@@ -1,4 +1,4 @@
-# Automatic Download Free Books (ADFB) from [Springer Nature](https://www.archlinux.org/download/)
+# Automatic Download Free Books (ADFB) from [Springer Nature](https://www.springernature.com/)
 
 It is a script that allows the automation of the free download of the books offered by Springer Nature at the following web link: [Free access to a range of essential textbooks from all disciplines](https://www.springernature.com/gp/librarians/news-events/all-news-articles/industry-news-initiatives/free-access-to-textbooks-for-institutions-affected-by-coronaviru/17855960).
 
