@@ -1,0 +1,11 @@
+beautifulsoup4==4.9.0
+hurry.filesize==0.9
+isort==4.3.21
+lazy-object-proxy==1.4.3
+numpy==1.18.4
+pandas==1.0.3
+pyinstaller @ https://github.com/pyinstaller/pyinstaller/archive/develop.zip
+python-dateutil==2.8.1
+pytz==2020.1
+six==1.14.0
+xlrd==1.2.0
