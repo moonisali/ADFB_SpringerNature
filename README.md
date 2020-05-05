@@ -1,6 +1,6 @@
 # Automatic Download Free Books (ADFB) from Springer Nature
 
-It is a script that allows the automation of the free download of the books offered by Springer Nature at the following web link: [Free access to a range of essential textbooks from all disciplines](https://www.springernature.com/gp/librarians/news-events/all-news-articles/industry-news-initiatives/free-access-to-textbooks-for-institutions-affected-by-coronaviru/17855960).
+It is a script that allows the user to automatically download the free books offered by Springer Nature at the following link: [Free access to a range of essential textbooks from all disciplines](https://www.springernature.com/gp/librarians/news-events/all-news-articles/industry-news-initiatives/free-access-to-textbooks-for-institutions-affected-by-coronaviru/17855960).
 
 ## How to use
 
@@ -19,11 +19,11 @@ For Windows users:
 This is what the program looks like once started
 
 ![image first page of program](images/first%20page.png) \
-first screen of the program, showing the books by categories available in the archive.
+the first screen of the program, showing the books by categories available in the archive.
 
 
 ![image second page of program](images/second%20page.png) \
-second screen of the program, download section of books.
+the second screen of the program, download section of books.
 
 
 ## For developers
