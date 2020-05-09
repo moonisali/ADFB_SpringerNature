@@ -1,11 +1,10 @@
-import urllib.request, subprocess, platform, ssl, os
+import urllib.request, urllib.parse, urllib.error, subprocess, platform, ssl, os, sys ,re
 from hurry.filesize import size
 from bs4 import BeautifulSoup
 import pandas as pd
-import sys
 
 # File Data Books
-BOOKS = 'dataBooks.xlsx'
+BOOKS = 'Free+English+textbooks.xlsx'
 COLS = 80
 DOWNLOADTITLE = '{:*^'+str(COLS)+'}'
 DOWNLOADFORMAT = '{:<17} {:^20} {:^20} {:>20}'
@@ -110,7 +109,14 @@ def downloadFile(url, path, filename, category):
         print(DOWNLOADFORMAT.format(filename[:12]+'...', category[:15]+'...', 'File exist!', 'SKIPPING FILE'))
     else:
         if url != None:
-            u = urllib.request.urlopen(SERVER+url)
+            try:
+                u = urllib.request.urlopen(SERVER+url)
+            except urllib.error.HTTPError as e:
+                print(DOWNLOADFORMAT.format(filename[:12]+'...', category[:15]+'...', 'HTTPError:', e.code), end='\r')
+                return
+            except urllib.error.URLError as e:
+                print(DOWNLOADFORMAT.format(filename[:12]+'...', category[:15]+'...', 'URLError:', e.reason), end='\r')
+                return
             f = open(os.path.join(path, filename) , 'wb')
             file_size = int(u.headers['content-length'])
             
@@ -136,13 +142,21 @@ def downloadBooks(data,categories):
     for index,row in dataGroupByCategories:
         if index in categories:
             for index,rowBooks in row.iterrows():
-                html = urllib.request.urlopen(rowBooks['OpenURL'], context=ctx).read()
+                try:
+                    html = urllib.request.urlopen(rowBooks['OpenURL'], context=ctx).read()
+                except urllib.error.HTTPError as e:
+                    #print('HTTPError: {}'.format(e.code))
+                    continue
+                except urllib.error.URLError as e:
+                    #print('URLError: {}'.format(e.reason))
+                    continue
+                bookTitle = re.sub('/','-',rowBooks['Book Title'].rstrip())
                 soup = BeautifulSoup(html, 'html.parser')
 
                 tags = soup.find_all("a", attrs = {'title': 'Download this book in PDF format'})
                 if len(tags)>0:
-                    if createFolder(rowBooks[NAMECATEGORYCOLUMN], rowBooks['Book Title']):
-                        downloadFile(tags[0].get('href', None), getPath(rowBooks[NAMECATEGORYCOLUMN], rowBooks['Book Title'].rstrip()), rowBooks['Book Title'].rstrip()+".pdf", rowBooks[NAMECATEGORYCOLUMN])
+                    if createFolder(rowBooks[NAMECATEGORYCOLUMN], bookTitle):
+                        downloadFile(tags[0].get('href', None), getPath(rowBooks[NAMECATEGORYCOLUMN], bookTitle), bookTitle+".pdf", rowBooks[NAMECATEGORYCOLUMN])
 
 
 def main():
